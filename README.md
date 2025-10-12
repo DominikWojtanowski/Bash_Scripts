@@ -79,13 +79,13 @@ done
 3. **dzialania na zmiennych**
 ```bash
 #dodawnie
-value=$value1 + $value2
+value=$($value1 + $value2)
 #odjemowanie
-value=$value1 - $value2
+value=$($value1 - $value2)
 #mnozenie
-value=$value1 * $value2
+value=$($value1 * $value2)
 #dzielenie
-value=$value1 / $value2
+value=$($value1 / $value2)
 
 #konkatenacja stringow
 value=$value1$value2"przykladowy string"
@@ -219,6 +219,6 @@ Glownym celem automatyzacji jest pozbycie sie potrzeby wlasnorecznego wykonywani
 2. Automatyczne aktualizowanie systemu przy uruchomieniu lub po jakims czasie(systemd jesli bedzie jesli nie to cronjob)
 3. Automatyczne backupowanie najwazniejszych plikow przy uruchomieniu
 4. czyszczenie folderow tymczasowych 
-
+5. Automatyczne powiadomienie gdy zawartosc dysku przekroczy jakis okreslony procent(uznajmy ze 80%)
 
 
