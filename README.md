@@ -37,20 +37,20 @@ assosciative array (tablica gdzie indexami sa stringi, zeby zadeklarowac tablice
 
 1. **przypisywanie zmiennych**
 ```bash
-<nazwa_zmiennej>=<typ_danych>
-bool:
+#<nazwa_zmiennej>=<typ_danych>
+#bool:
 x=true
 x=false
-number:
+#number:
 x=1
 
-string:
+#string:
 x="hello world"
 
-array:
+#array:
 x=("array" 1 ("array2" "array3"))
 
-assosciative array:
+#assosciative array:
 declare -A x
 x["banana"]=5
 x["apple"]=5
