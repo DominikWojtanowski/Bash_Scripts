@@ -61,7 +61,7 @@ DefaultInstance=#domyślna instancja która zostanie uruchomiona kiedy uaktywnis
 ### syntax plikow .service
 ```ini
 [Unit]
-[Spójrz powyżej](#syntax-systemd-unit)
+# [Spójrz powyżej](#syntax-systemd-unit)
 
 [Service]
 Type=#wymagana opcja, daje informacje dla systemd jak zarządzać tym plikiem i jak dobrze znajdować jego stan, my będziemy używać pliku .simple ale istnieją inne typy
@@ -79,14 +79,14 @@ TimeoutSec=#określa czas po którym systemd automatyczne uzna proces za nieuzna
 
 
 [Install]
-[Spójrz powyżej](#syntax-systemd-unit)
+# [Spójrz powyżej](#syntax-systemd-unit)
 
 
 ```
 ### syntax plikow .timer
 ```ini
 [Unit]
-[Spójrz powyżej](#syntax-systemd-unit)
+# [Spójrz powyżej](#syntax-systemd-unit)
 
 [Timer]
 OnActiveSec=#pozwala uruchomic powiazany plik w zaleznosci od czasu uruchomienia pliki .timer
@@ -102,7 +102,7 @@ WakeSystem=#pozwala wybudzic system jesli jest uśpiony i nadchodzi czas wykonan
 
 
 [Install]
-[Spójrz powyżej](#syntax-systemd-unit)
+# [Spójrz powyżej](#syntax-systemd-unit)
 
 
 ```
