@@ -6,23 +6,22 @@
 ---
 
 #### Czym jest bash?
-> Bash - powłoka systemowa i **język skryptowy**, który służy jako interfejs do komunikacji (terminal) z systemem operacyjnym (glownie UNIX i UNIX-podobne (Linux)). **Celem dzisiejszej prezentacji jest omowienie jezyka skryptowego bash w kontekscie automatyzacji zadan w systemie**
+> Bash - powłoka systemowa i **język skryptowy**, który służy jako interfejs do komunikacji (terminal) z systemem operacyjnym (glownie UNIX i UNIX-podobne (Linux)). **Celem dzisiejszej prezentacji jest omówienie języka skryptowego bash w kontekscie automatyzacji zadań w systemie**
 
 ---
 
 ### Bash jako język skryptowy
-Pliki ktore uzywaja basha jako jezyka skryptowego zazwyczaj maja koncowce .sh
-Pierwsza linia w skrypcie ktory uzywa basha jest zazwyczaj #!/bin/bash mowi to komputerowi ze do wykonania tego pliku powinnien zostac uzyty bash
-Bash jest zazwyczaj uzywany do pisania prostych skryptow ktore automatyzuja jakies dzialania
+Pliki ktore uzywają basha jako języka skryptowego zazwyczaj maja końcówce .sh
+Pierwsza linia w skrypcie który uzywa basha jest zazwyczaj #!/bin/bash mówi to komputerowi ze do wykonania tego pliku powinnien zostac uzyty bash
+Bash jest zazwyczaj używany do pisania prostych skryptów które automatyzują jakies działania
 
 #### Zalety Basha
-- Bash jest wszedzie (jest domyslnym shellem w linuxie, kiedys byl w macos)
-- Bash dziala jako interpreter i jezyk skryptowy 
-- Pozwala automatyzowac wiele zadan
-- Mozna odpalic go wszedzie uzywajac odpowiednich narzedzi
+- Bash jest wszędzie (jest domyślnym shellem w linuxie, kiedyś byl w macos)
+- Bash działa jako interpreter i język skryptowy 
+- Bahsa można użyć do automatyzacji wielu zadań
 I wiele innych..
 
-#### Skladnia Basha
+#### Składnia Basha
 0. **typy zmiennych**
 ```bash
 number (...,-1,0,1,2,3, ... itp.) 
@@ -31,7 +30,7 @@ array (tablica mogaca zawierac kazdy typ zawartosci w sobie)
 assosciative array (tablica gdzie indexami sa stringi, zeby zadeklarowac tablice assioatywna trzeba uzyc deklaracji "declare -A <nazwa_tablicy>")
 
 ```
-###### kazdy typ da sie zadeklarowac poprzez 'declare', mozna wiecej poczytac na [declare man page](https://linuxcommand.org/lc3_man_pages/declareh.html)
+###### każdy typ da sie zadeklarować poprzez 'declare', można więcej poczytać na [declare man page](https://linuxcommand.org/lc3_man_pages/declareh.html)
 
 ---
 
@@ -58,17 +57,17 @@ x["apple"]=5
 ```
 ---
 
-2. **odwolywanie sie do tych zmiennych**
+2. **odwoływanie się do tych zmiennych**
 ```bash
-echo $<nazwa_zmiennej> #-> przeczyta wartosc $<nazwa_zmiennej> (number, string)
+echo $<nazwa_zmiennej> #-> przeczyta wartość $<nazwa_zmiennej> (number, string)
 
 for <nazwa_pojedynczego_elementu> in ${<nazwa_tablicy>[@]}; do
-    echo $<nazwa_pojedynczego_elementu> #-> odwolywanie sie do wartosci tablicy w bashu
+    echo $<nazwa_pojedynczego_elementu> #-> odwoływanie się do wartości tablicy w bashu
 done
 
 for <nazwa_pojedynczego_elementu> in ${!<nazwa_tablicy>[@]}; do
-    echo $<nazwa_pojedynczego_elementu> #-> odwolywanie sie do indexu tablicy 
-    echo ${<nazwa_tablicy>[$<nazwa_pojedynczego_elementu>]} #-> odwolywanie sie do zawartosci tablicy o danym indexie
+    echo $<nazwa_pojedynczego_elementu> #-> odwoływanie sie do indexu tablicy 
+    echo ${<nazwa_tablicy>[$<nazwa_pojedynczego_elementu>]} #-> odwoływanie się do zawartości tablicy o danym indexie
 done
 
 
@@ -76,7 +75,7 @@ done
 ```
 ---
 
-3. **dzialania na zmiennych**
+3. **działania na zmiennych**
 ```bash
 #dodawnie
 value=$($value1 + $value2)
@@ -95,8 +94,8 @@ value=$value1$value2"przykladowy string"
 
 ---
 
-4. **warunki i petle**
-zanim przystapimy do pokazywania warunkow i petli warto sie dowiedziec jak porownywac zmienne w warunkach, aby porownywac zmienne zazwyczaj uzywa sie specialnych operatorow:
+4. **warunki i pętle**
+Zanim przystąpimy do pokazywania warunków i pętli warto się dowiedzieć jak porównywać zmienne w warunkach, aby porównywać zmienne zazwyczaj używa sie specialnych operatorow:
 - -eq -> porownywanie zmiennych (equal), mozna tez uzywac "=="
 - -ne -> sprawdzenie czy zmienne sa inne (not equal)
 - -lt -> sprawdzenie czy zmienna jest mniejsza niz inna zmienna (lesser than)
@@ -168,14 +167,14 @@ until [ $count -gt 5 ]; do
 done
 
 #czym sie rozni while loop od until loopa
-#while loop wykonuje sie jesli warunek jest prawda a until loop wykonuje sie jesli warunek jest falszem
+#while loop wykonuje sie jeśli warunek jest prawdą a until loop wykonuje się jeśli warunek jest fałszem
 ```
 
 ---
 
 5. odczyt od uzytkownika
 ```bash
-#aby odczytac input od uzytkownika trzeba uzyc read
+#aby odczytać input od uzytkownika trzeba uzyć read
 read -p "ile masz lat?: " wiek 
 echo $wiek
 read -pa "Co dzisiaj jadles?" array
@@ -184,16 +183,16 @@ for i in ${array[@]}; do
 done
 
 ```
-wiecej mozna przeczytac na [read man page](https://linuxcommand.org/lc3_man_pages/readh.html)
+więcej można przeczytać na [read man page](https://linuxcommand.org/lc3_man_pages/readh.html)
 ---
 
-6. **podawanie argumentow z terminala**
-zazwyczaj argumenty przekazuje sie w nastepujacy sposob:
+6. **podawanie argumentów z terminala**
+Zazwyczaj argumenty przekazuje się w nastepujący sposób:
 ./<nazwa_pliku>.sh arg1 arg2 arg3 arg4 ...
 
 ```bash
-#aby odwolac sie do zmiennych z terminala mozna uzyc $1 $2 $3 $4 itd. $0 to jest nazwa pliku ktorego uzywamy
-#mozna tez uzyc $@ aby potraktowac te argumenty jakby byly w tablicy
+#aby odwolać się do zmiennych z terminala można uzyć $1 $2 $3 $4 itd. $0 jest nazwą pliku którego uzywamy
+#mozna tez uzyć $@ aby potraktowac te argumenty jakby byly w tablicy
 echo "Pierwszy argument: $1"
 echo "Drugi argument: $2"
 echo "Wszystkie argumenty: $@"
@@ -201,10 +200,10 @@ echo "Wszystkie argumenty: $@"
 
 ---
 
-7. **odwolywanie sie do innych plikow bash**
-aby odwolac sie do innych plikow .sh mozna uzyc komendy source
+7. **odwoływanie się do innych plików bash**
+aby odwolać się do innych plików .sh mozna uzyć komendy source
 ```bash
-source <sciezka_absolutna_do_plik2.sh> #innaczej trzeba patrzec na cwd
+source <sciezka_absolutna_do_plik2.sh> #inaczej trzeba patrzec na cwd
 #i teraz nam sie tak jakby uruchomil plik2.sh i mozna np. odwolywac sie do jego zmiennych
 echo $plik2Int
 
@@ -212,24 +211,17 @@ echo $plik2Int
 
 ---
 #### Cele automatyzacji
-Glownym celem automatyzacji jest pozbycie sie potrzeby wlasnorecznego wykonywania tych zadań
+Głównym celem automatyzacji jest pozbycie sie potrzeby własnoręcznego wykonywania zadań
 
 #### Jak mozna automatyzowac?
-W Linuxie istnieja dwie mozliwosci:
+W Linuxie używa się głównie dwóch sposobów:
 - crontab
 - systemd .service i .timer
-
-#### Na czym polega automatyzacja za pomoca crontab
-
-
-
-#### Na czym polega automatyzacja za pomoca .timer i .service
+Jednak skupimy się na systemd ponieważ systemd jest domyślnie wszędzie a crontab nie koniecznie
 
 #### Jakie przyklady podam?
-1. Automatyczne sortowanie plikow wzgledem daty (examples/sortingFiles)
-2. Automatyczne aktualizowanie systemu przy uruchomieniu lub po jakims czasie(systemd jesli bedzie jesli nie to cronjob)
-3. Automatyczne backupowanie najwazniejszych plikow przy uruchomieniu
-4. czyszczenie folderow tymczasowych 
+1. Automatyczne sortowanie plików względem daty (examples/sortingFiles)
+2. Automatyczne aktualizowanie systemu przy uruchomieniu lub po określonym czasie czasie
+3. Logowanie informacji o systemie
+4. Czyszczenie folderow tymczasowych 
 5. Automatyczne powiadomienie gdy zawartosc dysku przekroczy jakis okreslony procent(uznajmy ze 80%)
-
-
