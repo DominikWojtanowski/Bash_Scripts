@@ -78,13 +78,13 @@ done
 3. **działania na zmiennych**
 ```bash
 #dodawnie
-value=$($value1 + $value2)
+value=$((value1 + value2))
 #odjemowanie
-value=$($value1 - $value2)
+value=$((value1 - value2))
 #mnozenie
-value=$($value1 * $value2)
+value=$((value1 * value2))
 #dzielenie
-value=$($value1 / $value2)
+value=$((value1 / value2))
 
 #konkatenacja stringow
 value=$value1$value2"przykladowy string"
@@ -110,7 +110,7 @@ if [ warunek ];then
     kod...
 fi
 #przyklad
-if [$x -eq 5]; then
+if [ "$x" -eq 5 ]; then
     echo "x jest rowne 5"
 fi
 #if elseif
@@ -125,7 +125,7 @@ if [$x -le $y]; then
     echo "x jest mniejsze niz y"
 elif [$x == $y]; then
     echo "x jest rowne y"
-else; then
+else
     echo "x jest wieksze niz y"
 fi
 
@@ -147,7 +147,7 @@ for i in ${1..5}; do
     echo $i 
 done
 
-for i in ${array[@]}; do
+for i in "${array[@]}"; do
     echo $i
 done
 
@@ -177,7 +177,7 @@ done
 #aby odczytać input od uzytkownika trzeba uzyć read
 read -p "ile masz lat?: " wiek 
 echo $wiek
-read -pa "Co dzisiaj jadles?" array
+read -p "Co dzisiaj jadles?" -a array
 for i in ${array[@]}; do
     echo $i
 done
